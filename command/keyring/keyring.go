@@ -173,6 +173,10 @@ func (c *cmd) handleList(responses []*consulapi.KeyringResponse) {
 		for key, num := range response.Keys {
 			c.UI.Output(fmt.Sprintf("  %s [%d/%d]", key, num, response.NumNodes))
 		}
+
+		for key, num := range response.PrimaryKeys {
+			c.UI.Output(fmt.Sprintf("  %s [%d/%d] primary keys", key, num, response.NumNodes))
+		}
 	}
 }
 
